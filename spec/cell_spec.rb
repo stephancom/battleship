@@ -1,5 +1,6 @@
 RSpec.describe Cell do
-  let(:ship) { :some_ship } # TODO: ship model
+  let(:ship_type) { :battleship }
+  let(:ship) { Ship.new(ship_type) } # TODO: ship model
   let(:cell) { Cell.new }
 
   describe 'initially' do
@@ -25,7 +26,11 @@ RSpec.describe Cell do
       }.to change { cell.occupied? }.from(false).to(true)
     end
 
-    pending 'can only be occupied by a ship'
+    it 'can only be occupied by a ship' do
+      expect {
+        cell.place_ship 'this is not a ship'
+      }.to raise_error InvalidShip
+    end
 
     describe 'when fired upon' do
       it 'returns false' do
@@ -68,14 +73,19 @@ RSpec.describe Cell do
         }.to change { cell.hit? }.from(false).to(true)
       end
 
-      pending 'it marks the ship hit'
+      it 'it hits the ship' do
+        expect(ship).to receive(:hit!)
+        cell.fire_on
+      end
 
       describe 'when it was already hit' do
         before do
           cell.fire_on
         end
 
-        pending 'it does not mark the ship hit again'
+        it 'it does not mark the ship hit again' do
+          expect(ship).not_to receive(:hit!)
+        end
 
         it 'cannot be fired upon again' do
           expect {

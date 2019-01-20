@@ -3,9 +3,10 @@ require 'bundler/setup'
 require 'rspec/collection_matchers'
 require 'rspec_command'
 require 'battleship'
-include Battleship
 
 RSpec.configure do |config|
+  include Battleship
+
   config.include RSpecCommand
 
   # Enable flags like --only-failures and --next-failure

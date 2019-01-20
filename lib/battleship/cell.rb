@@ -1,9 +1,8 @@
 module Battleship
   # a cell of a battleship
   class Cell
-    attr_reader :content
-    attr_reader :hit
     def initialize
+      @content = nil
       @hit = false
     end
 
@@ -16,8 +15,8 @@ module Battleship
     end
 
     def place_ship(ship)
-      # TODO: raise InvalidContent unless ship.is_a? Ship
       raise CellOccupied if occupied?
+      raise InvalidShip unless ship.is_a? Ship
 
       @content = ship
     end
@@ -26,7 +25,7 @@ module Battleship
       raise AlreadyFired if hit?
 
       @hit = true
-      # mark hit on ship
+      @content.hit! if occupied?
       occupied?
     end
   end
