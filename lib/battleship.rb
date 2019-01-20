@@ -1,6 +1,7 @@
-require "battleship/version"
+require 'battleship/version'
+require 'battleship/cell'
 
 module Battleship
-  class Error < StandardError; end
-  # Your code goes here...
+  class CellOccupied < StandardError; end
+  class AlreadyFired < StandardError; end
 end
