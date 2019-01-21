@@ -1,4 +1,4 @@
-# Battleship [![Build Status](https://travis-ci.org/stephancom/battleship.svg?branch=master)](https://travis-ci.org/stephancom/battleship) [![Maintainability](https://api.codeclimate.com/v1/badges/df24c7191ee15f50aae4/maintainability)](https://codeclimate.com/github/stephancom/battleship/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/df24c7191ee15f50aae4/test_coverage)](https://codeclimate.com/github/stephancom/battleship/test_coverage)
+# Battleship [![Build Status](https://travis-ci.org/stephancom/battleship.svg?branch=master)](https://travis-ci.org/stephancom/battleship) [![Maintainability](https://api.codeclimate.com/v1/badges/dcbc210c6d9edf4d028b/maintainability)](https://codeclimate.com/github/stephancom/battleship/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/dcbc210c6d9edf4d028b/test_coverage)](https://codeclimate.com/github/stephancom/battleship/test_coverage)
 
 in fulfillment of a code challenge
 
@@ -7,7 +7,9 @@ in fulfillment of a code challenge
 The well-known game of *Battleship*
 
 https://en.wikipedia.org/wiki/Battleship_(game)
+
 https://www.hasbro.com/common/instruct/Battleship.pdf
+
 https://www.youtube.com/watch?v=q0qpQ8doUp8
 
 | ship type  | dimensions |
