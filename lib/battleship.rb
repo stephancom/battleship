@@ -1,5 +1,6 @@
 require 'battleship/version'
 require 'battleship/cell'
+require 'battleship/grid'
 require 'battleship/ship'
 
 module Battleship
@@ -7,6 +8,7 @@ module Battleship
   class AlreadyFired < StandardError; end
   class InvalidShip < StandardError; end
   class AlreadySunk < StandardError; end
+  class OutOfRange < StandardError; end
 
   def self.message(text)
     # temporary until UI designed
