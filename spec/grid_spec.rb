@@ -6,9 +6,9 @@ RSpec.describe Grid do
     end
   end
   describe 'the grid' do
-    let(:coords) { ('A'..'J').to_a.product((1..10).to_a).map(&:join) } # cartesian product FTW
+    let(:coords) { ('A'..'J').to_a.product((1..10).to_a).map(&:join).map { |str| Coordinate.new_from_string(str) } } # cartesian product FTW
     let(:grid) { Grid.new }
-    let(:cells) { coords.map { |coord| grid.cell_at_coord(coord) } }
+    let(:cells) { coords.map { |coord| grid[coord] } }
 
     it 'should contain Cells' do
       expect(cells).to all(be_an_instance_of(Cell))

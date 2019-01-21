@@ -1,5 +1,6 @@
 require 'battleship/version'
 require 'battleship/cell'
+require 'battleship/coordinate'
 require 'battleship/grid'
 require 'battleship/ship'
 
