@@ -22,8 +22,8 @@ module Battleship
       ships.keys
     end
 
-    def self.each_ship
-      ship_types.each { |type| yield(new(type)) }
+    def self.all
+      ship_types.map { |type| Ship.new(type) }
     end
 
     attr_reader :type
@@ -37,6 +37,7 @@ module Battleship
     def name
       Ship.ships[@type][:name]
     end
+    alias to_s name
 
     def size
       Ship.ships[@type][:size]

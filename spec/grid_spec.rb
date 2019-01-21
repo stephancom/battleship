@@ -1,7 +1,7 @@
 RSpec.describe Grid do
   describe 'creating a grid' do
     it 'should create 10x10=100 new Cells' do
-      expect(Cell).to receive(:new).exactly(100).times
+      expect(Cell).to receive(:new).exactly(100).times.and_call_original
       Grid.new
     end
   end
@@ -160,5 +160,20 @@ RSpec.describe Grid do
         end
       end
     end
+  end
+  describe 'when fired on' do
+    let(:target) { Coordinate.from_string('E5') }
+    let(:grid) { Grid.new }
+    it 'should delegate the hit to the corresponding cell' do
+      expect(grid[target]).to receive(:fire_on!)
+      grid.fire_at!(target)
+    end
+  end
+  describe '#to_table' do
+    it 'returns a table object' do
+      expect(Grid.new.to_table).to be_an_instance_of(Terminal::Table)
+    end
+
+    pending 'test table contents'
   end
 end

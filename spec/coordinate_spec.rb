@@ -31,7 +31,7 @@ RSpec.describe Coordinate do
         end
 
         it "should turn to string as #{str}" do
-          expect(coord.to_str).to eq(str)
+          expect(coord.to_s).to eq(str)
         end
       end
     end
@@ -41,7 +41,7 @@ RSpec.describe Coordinate do
         let(:coord) { Coordinate.new(rowcol[:row], rowcol[:col]) }
 
         it "should turn to string as #{str}" do
-          expect(coord.to_str).to eq(str)
+          expect(coord.to_s).to eq(str)
         end
       end
     end
@@ -71,17 +71,17 @@ RSpec.describe Coordinate do
 
     it 'should generate a random coordinate A10' do
       expect(Coordinate).to receive(:rand).twice.with(10).and_return(9, 0)
-      expect(Coordinate.random.to_str).to eq('A10')
+      expect(Coordinate.random.to_s).to eq('A10')
     end
 
     it 'should generate a random coordinate D8' do
       expect(Coordinate).to receive(:rand).twice.with(10).and_return(7, 3)
-      expect(Coordinate.random.to_str).to eq('D8')
+      expect(Coordinate.random.to_s).to eq('D8')
     end
 
     it 'should generate a random coordinate J1' do
       expect(Coordinate).to receive(:rand).twice.with(10).and_return(0, 9)
-      expect(Coordinate.random.to_str).to eq('J1')
+      expect(Coordinate.random.to_s).to eq('J1')
     end
   end
 end

@@ -17,6 +17,20 @@ include Battleship
 
 main do
   puts 'Welcome to Battleship'
+
+  p1 = Player.new('Alice')
+  p2 = Player.new('Bob')
+  p1.opponent = p2
+  p2.opponent = p1
+  [p1, p2].cycle do |player|
+    Battleship.message "#{player.name}'s turn"
+    Battleship.message "It's a hit!" if player.move!
+    puts player.opponent_grid
+    if player.opponent.lost?
+      puts "#{player.name} won!"
+      break 
+    end
+  end
 end
 
 description 'The classic game of Battleship'

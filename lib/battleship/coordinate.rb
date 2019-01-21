@@ -28,7 +28,7 @@ module Battleship
       new(rand(SIZE), rand(SIZE))
     end
 
-    def to_str
+    def to_s
       [COLS[@col], (@row + 1).to_s].join
     end
 

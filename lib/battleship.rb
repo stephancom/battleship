@@ -1,8 +1,9 @@
-require 'battleship/version'
 require 'battleship/cell'
 require 'battleship/coordinate'
 require 'battleship/grid'
+require 'battleship/player'
 require 'battleship/ship'
+require 'battleship/version'
 
 module Battleship
   class CellOccupied < StandardError; end

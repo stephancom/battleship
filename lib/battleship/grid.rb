@@ -1,3 +1,5 @@
+require 'terminal-table'
+
 module Battleship
   # the grid of cells
   class Grid
@@ -33,8 +35,23 @@ module Battleship
     end
 
     def place_ship_randomly(ship)
+      throw :foo if ship.nil?
       loop do
         break if place_ship_at(ship, Coordinate.random, [true, false].sample)
+      end
+    end
+
+    def fire_at!(coord)
+      self[coord].fire_on!
+    end
+
+    def to_table(title: nil, secret: false)
+      char_method = secret ? :to_secret : :to_s
+      Terminal::Table.new title: title do |t|
+        t << [' '] + Coordinate::COLS
+        @cells.each_with_index do |row, i|
+          t << [i] + row.map(&char_method)
+        end
       end
     end
   end
